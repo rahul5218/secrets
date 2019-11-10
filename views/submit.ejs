@@ -1,0 +1,42 @@
+<%- include('partials/header') %>
+<div class="container">
+  <div class="col">
+      <h1 align="center">My Secret</h1>
+  </div>
+    <div class="row">
+      <div class="col-sm-2">
+      <h5 class="btn btn-success">logged in</h5>
+        <img src="<%=photo%>" height="100" width="100" style="border-radius: 100%;">
+      </div>
+      <div class="col-sm-6">
+        <h4>Welcome <br><%=name%></h4>
+      </div>
+      <div align="right" class="col-sm-4">
+        <a class="btn btn-dark" href="/secrets" role="button" >Explore Secrets</a>
+        <a class="btn btn-danger" href="/logout" role="button">Log Out</a>
+        <p></p>
+        <a class="btn btn-warning" onclick="alertfun()" role="button">Delete Account</a>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-sm-2">
+          <h3>Your Secret:</h3>
+      </div>
+      <div class="col-sm-8">
+        <% if(my_secret===''||!my_secret){my_secret="Please share your secret";}%>
+        <h4 class="btn btn-info"><%=my_secret%></h4>
+      </div>
+    </div>
+    <br>
+    <form action="/submit" method="POST">
+      <div class="form-group">
+        <textarea class="form-control text-center" rows="5" name="secret" placeholder="What's your secret?" required></textarea>
+      </div>
+      <center><button type="submit" class="btn btn-dark">Submit</button>
+      <a class="btn btn-danger" href="/deleteSecret" role="button">delete secret</a>
+      </center>
+    </form>
+
+</div>
+<%- include('partials/footer') %>

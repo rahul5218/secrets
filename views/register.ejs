@@ -1,0 +1,78 @@
+<%- include('partials/header') %>
+<div class="container mt-5">
+  <h1>Register</h1>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+
+          <!-- Makes POST request to /register route -->
+          <form action="/register" method="POST">
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+		              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		          </div>
+              <input type="text" class="form-control" placeholder="Full name" name="name" required>
+            </div>
+              <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+                </div>
+                  <input class="form-control" id="date" name="date" placeholder="mm/dd/yyyy" type="text"/>
+              </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+              </div>
+              <input type="email" class="form-control" placeholder="Email" name="username" required>
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+              </div>
+              <input type="text" class="form-control" placeholder="Mobile no" name="mobile">
+            </div>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-key"></i> </span>
+              </div>
+              <input type="password" class="form-control" placeholder="password" name="password" minlength=6 required>
+            </div>
+            <button type="submit" class="btn btn-dark">Register</button>
+            <a class="btn btn-light" href="/login" role="button">Login</a>
+          </form>
+            <br>
+          <%if(otp===1){%>
+
+          <form class="" action="/verify" method="post">
+          <span class="badge badge-success">Enter OTP sent to your Email</span>
+            <input type="text" name="otp">
+            <button type="submit" class="btn btn-dark btn-sm">verify</button>
+          </form>
+          <%}%>
+        </div>
+            <span class="badge badge-warning"><h6><%=message%></span>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card social-block">
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+            <i class="fab fa-google"></i>
+            Sign in with Google
+          </a>
+        </div>
+      </div>
+      <div class="card social-block">
+        <div class="card-body">
+          <a class="btn btn-block btn-social btn-facebook" href="/auth/facebook" role="button">
+            <i class="fab fa-facebook"></i>
+            Sign in with facebook
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
